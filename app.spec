@@ -6,10 +6,7 @@ a = Analysis(
     ['app.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        # Если у тебя есть папки с ресурсами (картинки, звуки и т.д.), 
-        # их можно указать здесь через запятую: ('путь_на_компе', 'папка_в_релизе')
-    ],
+    datas=[],
     hiddenimports=[
         'customtkinter',
         'firebase_admin',
@@ -45,7 +42,7 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
-    console=True,  # Поставь True, если нужно видеть консоль для отладки
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,

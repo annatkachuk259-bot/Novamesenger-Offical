@@ -24,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate spec and Build EXE with PyInstaller
+      - name: Build EXE with PyInstaller
         run: |
           pyinstaller --noconsole --clean --onefile --name=NovaMessenger --hidden-import=customtkinter --hidden-import=firebase_admin --hidden-import=PIL --hidden-import=sounddevice --hidden-import=numpy --hidden-import=cv2 --hidden-import=mss app.py
 

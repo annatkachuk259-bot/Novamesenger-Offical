@@ -25,11 +25,7 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-; Исправлено имя исполняемого файла (убедитесь, что после pyinstaller он называется NovaMessenger.exe или переименуйте его в папке dist)
-Source: "C:\Users\Юрий\Desktop\NovaMessenger\dist\novamesenger.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Юрий\Desktop\NovaMessenger\dist\serviceAccountKey.json"; DestDir: "{app}"; Flags: ignoreversion
-; Добавлено копирование иконки в папку программы, чтобы ярлыки могли её отображать
-Source: "C:\Users\Юрий\Desktop\NovaMessenger\photo_2026-08-25_13-51-31.ico"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "dist\novamesenger.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\photo_2026-08-25_13-51-31.ico"

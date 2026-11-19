@@ -24,3 +24,6 @@ Every release is checked via VirusTotal (SHA-256 checksums are published on the 
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+Code Signing
+Free code signing provided by SignPath.io https://signpath.io/, certificate by SignPath Foundation https://signpath.org/.

@@ -14,6 +14,12 @@ jobs:
       - name: Скачать код из репозитория
         uses: actions/checkout@v4
 
+      - name: Создать serviceAccountKey.json из секрета
+        env:
+          FIREBASE_KEY_JSON: ${{ secrets.FIREBASE_SECRET_JSON }}
+        run: |
+          echo "$FIREBASE_KEY_JSON" > serviceAccountKey.json
+
       - name: Установить Python
         uses: actions/setup-python@v5
         with:
@@ -26,7 +32,7 @@ jobs:
 
       - name: Собрать NovaMessenger.app
         run: |
-          pyinstaller --noconfirm --windowed --collect-all customtkinter --name "NovaMessenger" app.py
+          pyinstaller --noconfirm --windowed --collect-all customtkinter --add-data "serviceAccountKey.json:." --name "NovaMessenger" app.py
 
       - name: Упаковать в установщик .dmg
         run: |
@@ -35,5 +41,7 @@ jobs:
       - name: Прикрепить готовый .dmg к артефактам
         uses: actions/upload-artifact@v4
         with:
+          name: NovaMessenger-macOS-DMG
+          path: NovaMessenger_v1.4.dmg   with:
           name: NovaMessenger-macOS-DMG
           path: NovaMessenger_v1.4.dmg

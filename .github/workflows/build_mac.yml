@@ -11,37 +11,35 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Скачать код из репозитория
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Создать serviceAccountKey.json из секрета
+      - name: Create serviceAccountKey.json from secret
         env:
           FIREBASE_KEY_JSON: ${{ secrets.FIREBASE_SECRET_JSON }}
         run: |
           echo "$FIREBASE_KEY_JSON" > serviceAccountKey.json
 
-      - name: Установить Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Установить зависимости и PyInstaller
+      - name: Install dependencies and PyInstaller
         run: |
           python -m pip install --upgrade pip
           pip install pyinstaller pillow sounddevice numpy opencv-python mss customtkinter firebase-admin
 
-      - name: Собрать NovaMessenger.app
+      - name: Build NovaMessenger.app
         run: |
           pyinstaller --noconfirm --windowed --collect-all customtkinter --add-data "serviceAccountKey.json:." --name "NovaMessenger" app.py
 
-      - name: Упаковать в установщик .dmg
+      - name: Package into DMG
         run: |
           hdiutil create -volname "NovaMessenger" -srcfolder dist/NovaMessenger.app -ov -format UDZO NovaMessenger_v1.4.dmg
 
-      - name: Прикрепить готовый .dmg к артефактам
+      - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
         with:
-          name: NovaMessenger-macOS-DMG
-          path: NovaMessenger_v1.4.dmg   with:
           name: NovaMessenger-macOS-DMG
           path: NovaMessenger_v1.4.dmg

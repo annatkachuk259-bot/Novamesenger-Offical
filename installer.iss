@@ -1,6 +1,6 @@
 
 #define MyAppName "NovaMessenger"
-#define MyAppVersion "1.3"
+#define MyAppVersion "1.3
 #define MyAppPublisher "Nova Corp"
 #define MyAppExeName "NovaMessenger.exe"
 
@@ -33,3 +33,4 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilen
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+

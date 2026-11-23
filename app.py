@@ -1785,13 +1785,27 @@ class NovaApp:
         else:
             self.finish_voice_record(hit_limit=False)
 
-    def play_voice(self, path):
+    ddef play_voice(self, path):
+        import platform
+        import subprocess
+
+        system = platform.system()
         try:
-            import winsound
-            winsound.PlaySound(path, winsound.SND_FILENAME)
+            if system == "Windows":
+                import winsound
+                winsound.PlaySound(path, winsound.SND_FILENAME)
+            elif system == "Darwin":
+                subprocess.run(["afplay", path], check=False)
+            else:
+                for cmd in (["aplay", path], ["paplay", path]):
+                    try:
+                        subprocess.run(cmd, check=True)
+                        break
+                    except Exception:
+                        continue
         except Exception:
             pass
-
+            
     def render_settings_panel(self):
         scroll = ctk.CTkScrollableFrame(self.content, fg_color="transparent")
         scroll.pack(fill="both", expand=True, padx=30, pady=25)
@@ -1869,4 +1883,5 @@ class NovaApp:
 if __name__ == "__main__":
     root = ctk.CTk()
     app = NovaApp(root)
+
     root.mainloop()

@@ -1785,7 +1785,7 @@ class NovaApp:
         else:
             self.finish_voice_record(hit_limit=False)
 
-    ddef play_voice(self, path):
+    def play_voice(self, path):
         import platform
         import subprocess
 
@@ -1885,3 +1885,4 @@ if __name__ == "__main__":
     app = NovaApp(root)
 
     root.mainloop()
+
